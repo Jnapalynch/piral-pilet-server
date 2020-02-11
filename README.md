@@ -4,7 +4,6 @@ Server created with NodeJs to manage the Pilet's created with Piral Framework (h
 Depedencies
 
 - npm install -g piral-cli
-- Create a Piral Shell Project
 
 To Run Server:
 
@@ -21,4 +20,4 @@ To get yout pilet records
 
 - enter to http://localhost:9000/
 
-After publish your pilet on the server you must to change you feedUrl in your Piral Shell Project
+After publish your pilet on the server you must to change you feedUrl in your Piral Shell Project (https://github.com/Jnapalynch/piral-shell)
