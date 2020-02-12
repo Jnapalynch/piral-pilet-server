@@ -9,9 +9,7 @@ function getFileToS3(pathFile) {
 
     return s3_bucket.getObject({
         Key: pathFile
-    }).promise().then((data) => {
-        return data.Body.toString()
-    })
+    }).promise();
 }
 
 function sendFileToS3(pathFile, bufferData) {
