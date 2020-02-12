@@ -4,4 +4,4 @@ WORKDIR piral-server
 COPY . .
 RUN npm i
 EXPOSE 8080
-CMD ["node", "src/idex.js"]
+CMD ["node", "src/index.js"]
