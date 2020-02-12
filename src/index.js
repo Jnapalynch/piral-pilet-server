@@ -32,6 +32,9 @@ app.use('/media', express.static('upload'));
 app.use('', pilet_router);
 app.use('', publish_router);
 
-app.listen(9000, () => {
-    console.log(`el servidor ha iniciado en http://127.0.0.1:9000`);
+const host = `${process.env.APP_HOST}`;
+const port = `${process.env.APP_PORT}`;
+
+app.listen(port, host, () => {
+    console.log(`el servidor ha iniciado en http://${host}:${port}`);
 });
