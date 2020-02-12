@@ -4,6 +4,16 @@ const fs = require('fs');
 const path = require('path');
 const aws = require('aws-sdk');
 
+function getFileToS3(pathFile) {
+    const s3_bucket = new aws.S3({params: {Bucket: 'piral-demo'}});
+
+    return s3_bucket.getObject({
+        Key: pathFile
+    }).promise().then((data) => {
+        return data.Body.toString()
+    })
+}
+
 function sendFileToS3(pathFile, bufferData) {
     const s3_bucket = new aws.S3({params: {Bucket: 'piral-demo'}});
 
@@ -77,7 +87,7 @@ function sendDataToDynamo(packageJsonData) {
             pd:  new Date().getTime().toString(),
             name: `${packageJsonData.name}`,
             version: `${packageJsonData.version}`,
-            link: `${process.env.AWS_S3_BASE_URL}/${process.env.AWS_S3_PILET_FOLDER}/${packageJsonData.name}/${packageJsonData.version}/index.js`,
+            link: `${process.env.DOMAIN_APP}/${process.env.AWS_S3_PILET_FOLDER}/${packageJsonData.name}/${packageJsonData.version}/index.js`,
             hash: new Date().getTime().toString(),
             active: true
         },
@@ -219,5 +229,6 @@ function getDataFromDynamo() {
 module.exports = {
     getFilesFromStreamZip: getFilesFromStreamZip,
     savePiletFiles: savePiletFiles,
-    getDataFromDynamo: getDataFromDynamo
+    getDataFromDynamo: getDataFromDynamo,
+    getFileToS3: getFileToS3
 };
