@@ -7,9 +7,18 @@ Depedencies
 
 To Run Server:
 
+- create .env file with the following data
+
+  - AWS_ACCESS_KEY_ID= // key to access aws s3 service
+  - AWS_SECRET_ACCESS_KEY= // key to access aws s3 service
+  - AWS_S3_BASE_URL= // s3 bucket url
+  - AWS_S3_PILET_FOLDER= // s3 folder into bucket
+  - APP_HOST= // host to start nodejs server
+  - APP_PORT= // port to expose nodejs server
+  - DOMAIN_APP= // application domain or ip
+
 - npm install
 - npm run start
-- the server will start on port 9000
 
 To push your pilets to the server
 
